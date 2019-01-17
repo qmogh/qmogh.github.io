@@ -6,7 +6,7 @@
 	Copyright (c) 2009-2014, Imperavi LLC.
 */
 (function($)
-{
+{ 
 	// Plugin
 	$.fn.autocomplete = function(options)
 	{
