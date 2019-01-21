@@ -1,4 +1,3 @@
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display SC", serif;
   color: #333333; }
@@ -39,7 +38,6 @@ a:hover {
   -ms-animation: blink 0.7s infinite;
   -o-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite; }
-
 @-webkit-keyframes blink {
   0% {
     opacity: 1; }
