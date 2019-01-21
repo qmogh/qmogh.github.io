@@ -1,1 +1,1 @@
-My first website, made thanks to Hack Club and many others.
+My personal website, made with html and js. 
