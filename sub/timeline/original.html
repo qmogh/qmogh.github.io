@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="orginal.css"/>
+  <title>Timeline </title>
+<head>
+  </head>
+<body>
+  <div id="title">
+    <h1> Timeline.</h1>
+    <h2> A Visual History Of <font color="red">Our Effect On The Planet.</font></h2>
+  </div>
+  <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "dark2",
+	title:{
+		text: "Top US Co2 Emission Producers"
+	},
+	axisY: {
+		title: "CO2 eq. Emissions (MMT)"
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		legendText: "Based on a 2011 UMass Amherst Study",
+		dataPoints: [
+			{ y: 130, label: "American Electric Power" },
+			{ y: 127,  label: "Duke Energy" },
+			{ y: 118,  label: "Southern Company" },
+			{ y: 77,  label: "U.S. Government" },
+			{ y: 71,  label: "MidAmerican Energy" },
+			{ y: 68, label: "Ameran Corp" },
+			{ y: 62,  label: "Luminant" },
+			{ y: 53,  label: "First Energy" },
+            { y: 51,  label: "AES Corp" },
+            { y: 51,  label: "Xcel Energy" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

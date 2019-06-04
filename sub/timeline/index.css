@@ -29,7 +29,8 @@
   height: 100%;
   animation: spin 30s linear alternate infinite;
   background: url(https://web.opendrive.com/api/v1/download/file.json/NTlfMTQ1MTkzNDhf?inline=1);
-  /*orginal image at https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earthmap1000x500compac.jpg/640px-Earthmap1000x500compac.jpg */
+  /*orginal image at https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earthmap1000x500compac.jpg/640px-Earthmap1000x500compac.jpg
+  https://web.opendrive.com/api/v1/download/file.json/NTlfMTQ1MTkzNDhf?inline=1*/
   background-size: cover;
 }
 @keyframes spin {
@@ -38,7 +39,9 @@
   }
 }
 
-body {background-color: black;}
+body {
+  background-color: black;
+}
 
 #title {
   color: white;
