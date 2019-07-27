@@ -104,7 +104,7 @@ html {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 25%;
   flex: 0 0 25%;
-  max-width: 25%; }
+  max-width: 50%; }
 
 .col-4 {
   -webkit-box-flex: 0;
@@ -296,7 +296,7 @@ html {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
-    max-width: 25%; }
+    max-width: 50%; }
   .col-sm-4 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 33.33333%;
