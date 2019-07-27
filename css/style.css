@@ -24,7 +24,7 @@ a:hover, a:active, a:focus { text-decoration: none; outline: none; }
 
 .templateux-navbar .toggle-menu:active, .templateux-navbar .toggle-menu:focus { outline: none; }
 
-.templateux-navbar .site-logo { position: relative; top: -10px; z-index: 9999; }
+.templateux-navbar .site-logo { position: relative; top: -10px; z-index: 9999; max-width: 1000px}
 
 .templateux-navbar .site-logo a { font-size: 30px; color: #000; }
 
