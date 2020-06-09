@@ -1,0 +1,40 @@
+/* CSS files add styling rules to your content */
+
+
+.activism {
+  font-family:"IBM Plex Serif";
+    font-size:20px;
+}
+
+@media only screen and (min-width: 64em) {
+  .me {
+    padding-left: 40px;
+    padding-top: 40px;
+    padding-right: 500px;
+  }
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 2em;
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  font-family: Montserrat;
+}
+
+a {
+  color: lightblue;
+}
+
+
+
+.indent {
+   text-indent: 50px;
+}
+
+.arrow {
+  font-size:15px;
+}
