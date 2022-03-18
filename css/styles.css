@@ -1,5 +1,19 @@
-body {
+
+.green {
+	color: #7ca34d
+  }
+  
+  .blue {
+	color: #007a87
+  }
+  
+  body {
 	font-family: 'EB Garamond', serif;
+	font-size: 25px;
+  }
+  
+  @media only screen and (min-width: 32em) {
+	body {
 	margin-top: 40px;
 	padding-right: 100px;
 	padding-left: 100px;
@@ -16,10 +30,32 @@ body {
 	line-height: 1.2;
   }
   
-  .green {
-	color: #7ca34d
   }
   
-  .blue {
-	color: #007a87
+  
+  /*
+  .fa-twitter {
+	background: white;
+	color: #black;
   }
+  
+  .fa-linkedin {
+	background: white;
+	color: #black;
+  }
+  
+  
+  
+  .center {
+	text-align: center;
+  }
+  
+  
+  
+  .fa-google {
+	background: white;
+	color: #black;
+  }
+  
+  
+  */
