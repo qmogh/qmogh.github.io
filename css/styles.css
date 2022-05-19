@@ -18,6 +18,8 @@
   body {
 	font-family: 'EB Garamond', serif;
 	font-size: 25px;
+  padding-left: 16px;
+  padding-right: 16px;
   }
   
   @media only screen and (min-width: 32em) {
