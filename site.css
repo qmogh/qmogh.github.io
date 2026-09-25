@@ -3,7 +3,7 @@ body{color:#1f1d18;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-
 a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 a:hover{opacity:.6}
 p{margin:0}
-pre{margin:0;overflow-x:auto;font-family:"IBM Plex Mono",monospace}
+pre{margin:0;overflow-x:auto;overflow-y:hidden;font-family:"IBM Plex Mono",monospace}
 .page{max-width:560px;margin:0 auto;padding:72px 24px 96px}
 .muted{color:#8a8375}
 
