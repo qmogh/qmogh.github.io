@@ -64,7 +64,9 @@ _|____|__|____||_|_|____|_|___|/__________________\__
 Promise.all(['/data/now.json', '/data/reading.json'].map(u => fetch(u).then(r => r.json()))).then(([now, books]) => {
   document.getElementById('now').textContent = now.now;
   document.getElementById('based').textContent = now.based;
-  document.getElementById('reading').textContent = (books.find(b => b.current) || {}).title || '';
+  const current = books.find(b => b.current);
+  if (current) document.getElementById('reading').textContent = current.title;
+  else document.querySelectorAll('.now dt')[1].remove(), document.getElementById('reading').remove();
 });
 </script>
 </body>

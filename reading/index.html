@@ -26,6 +26,7 @@
 <script src="/portrait.js"></script>
 <script>
 fetch('/data/reading.json').then(r => r.json()).then(books => {
+  if (!books.length) return document.getElementById('books').innerHTML = '<div class="book"><span class="rating">–</span><p>Nothing here yet.</p></div>';
   document.getElementById('books').append(...books.sort((a, b) => b.rating - a.rating).map(b => {
     const el = document.createElement('div');
     el.className = 'book';
