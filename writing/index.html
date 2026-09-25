@@ -32,7 +32,7 @@ fetch('/data/posts.json').then(r => r.json()).then(posts => {
     el.className = 'post';
     el.href = p.url;
     el.innerHTML = '<span><span></span><small></small></span><time></time>';
-    el.querySelector('span span').textContent = text(p.title) + ' ↗';
+    el.querySelector('span span').textContent = text(p.title) + ' ↗\uFE0E';
     el.querySelector('small').textContent = text(p.subtitle);
     el.querySelector('time').textContent = new Date(p.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
     return el;
