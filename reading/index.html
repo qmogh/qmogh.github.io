@@ -16,13 +16,25 @@
 <div class="name">Amogh Chaubey</div>
 <nav><a href="/">me</a><a href="/writing/">writing</a><a href="/reading/" aria-current="page">reading</a></nav>
 </div>
-<div class="portrait"><img src="/assets/doodle-dither.png" alt="Amogh"></div>
 </header>
 
 
 <div class="books" id="books"></div>
+<footer>
+<pre class="skyline">                     /\
+                    /  \
+                   /____\
+                   |nnnn|
+                   |(  )|
+       /\          |    |
+      |  |         |    |          _.--""""--._
+  ____|[]|____  _  |    |  ___   .'            '.
+ | [] |  | [] || | |    | |   | /                \
+_|____|__|____||_|_|____|_|___|/__________________\__
+ ~~~~ ~~~ ~~~~ ~~ ~~~ ~~~~ ~~~ ~~~~ ~~ ~~~ ~~~~ ~~~~
+   west lafayette, in (where it all began)</pre>
+</footer>
 </div>
-<script src="/portrait.js"></script>
 <script>
 fetch('/data/reading.json').then(r => r.json()).then(all => {
   const books = all.filter(b => b.rating != null);

@@ -16,14 +16,26 @@
 <div class="name">Amogh Chaubey</div>
 <nav><a href="/">me</a><a href="/writing/" aria-current="page">writing</a><a href="/reading/">reading</a></nav>
 </div>
-<div class="portrait"><img src="/assets/doodle-dither.png" alt="Amogh"></div>
 </header>
 
 
 <div class="intro">From my <a href="https://dotcombubble.substack.com">Substack</a>.</div>
 <div id="posts"></div>
+<footer>
+<pre class="skyline">                     /\
+                    /  \
+                   /____\
+                   |nnnn|
+                   |(  )|
+       /\          |    |
+      |  |         |    |          _.--""""--._
+  ____|[]|____  _  |    |  ___   .'            '.
+ | [] |  | [] || | |    | |   | /                \
+_|____|__|____||_|_|____|_|___|/__________________\__
+ ~~~~ ~~~ ~~~~ ~~ ~~~ ~~~~ ~~~ ~~~~ ~~ ~~~ ~~~~ ~~~~
+   west lafayette, in (where it all began)</pre>
+</footer>
 </div>
-<script src="/portrait.js"></script>
 <script>
 const text = s => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent;
 fetch('/data/posts.json').then(r => r.json()).then(posts => {
