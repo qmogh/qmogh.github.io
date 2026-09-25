@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reading — Amogh Chaubey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div class="page">
+<header>
+<div>
+<div class="name">Amogh Chaubey</div>
+<nav><a href="/">me</a><a href="/writing/">writing</a><a href="/reading/" aria-current="page">reading</a></nav>
+</div>
+<div class="portrait"><img src="/assets/doodle-dither.png" alt="Amogh"></div>
+</header>
+
+
+<div class="intro">Books I've read, rated out of 10, with the one thing I took away.</div>
+<div class="books" id="books"></div>
+</div>
+<script src="/portrait.js"></script>
+<script>
+fetch('/data/reading.json').then(r => r.json()).then(books => {
+  document.getElementById('books').append(...books.sort((a, b) => b.rating - a.rating).map(b => {
+    const el = document.createElement('div');
+    el.className = 'book';
+    el.innerHTML = '<span class="rating"></span><div><div><b></b> <span class="muted"></span></div><p></p></div>';
+    el.querySelector('.rating').textContent = b.rating;
+    el.querySelector('b').textContent = b.title;
+    el.querySelector('.muted').textContent = '— ' + b.author;
+    el.querySelector('p').textContent = b.takeaway;
+    return el;
+  }));
+});
+</script>
+</body>
+</html>
