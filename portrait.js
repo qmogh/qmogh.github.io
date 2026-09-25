@@ -28,7 +28,13 @@ img.onload = () => {
       P.push({ hx, hy, x: CSS / 2 + Math.cos(a) * r, y: CSS / 2 + Math.sin(a) * r, vx: 0, vy: 0, delay: Math.random() * 0.6 });
     } else P.push({ hx, hy, x: hx, y: hy, vx: 0, vy: 0 });
   }
-  for (const p of P) Object.assign(p, { r: Math.random(), ph: Math.random() * 6.283, ph2: Math.random() * 6.283, w: 0.4 + Math.random() * 0.8, amp: 2 + Math.random() * 6 });
+  for (const p of P) Object.assign(p, { ph: Math.random() * 6.283, ph2: Math.random() * 6.283, w: 0.4 + Math.random() * 0.8, amp: 2 + Math.random() * 6 });
+  const op = (x, y) => x >= 0 && y >= 0 && x < w && y < h && d[(y * w + x) * 4 + 3] > 128;
+  const edge = P.filter(p => {
+    const x = Math.round((p.hx - PAD) / s), y = Math.round((p.hy - PAD) / s);
+    return !op(x - 2, y) || !op(x + 2, y) || !op(x, y - 2) || !op(x, y + 2);
+  });
+  for (let i = 0; i < FLOATERS && edge.length; i++) edge.splice(Math.random() * edge.length | 0, 1)[0].drift = true;
   dot = Math.max(s, 1 / dpr) * 1.05;
   if (intro) scatterAt = performance.now() - 250;
   fallback.replaceWith(cv);
@@ -42,7 +48,7 @@ function draw() {
 }
 
 function tick() {
-  const now = performance.now() / 1000, driftFrac = FLOATERS / P.length;
+  const now = performance.now() / 1000;
   const { x: mx, y: my } = m, R2 = RADIUS * RADIUS;
   let energy = 0;
   ctx.clearRect(0, 0, CSS, CSS); ctx.fillStyle = '#2a2622';
@@ -56,9 +62,8 @@ function tick() {
       const u = Math.min(1, Math.max(0, (T - (p.delay || 0) * 0.5) / 0.7)), e = u * u * (3 - 2 * u);
       k = 0.0008 + 0.044 * e; damp = 0.94 - 0.08 * e;
     }
-    const drift = p.r < driftFrac;
-    const tx = drift ? p.hx + Math.sin(now * p.w + p.ph) * p.amp : p.hx;
-    const ty = drift ? p.hy + Math.cos(now * p.w * 0.8 + p.ph2) * p.amp : p.hy;
+    const tx = p.drift ? p.hx + Math.sin(now * p.w + p.ph) * p.amp : p.hx;
+    const ty = p.drift ? p.hy + Math.cos(now * p.w * 0.8 + p.ph2) * p.amp : p.hy;
     p.vx += (tx - p.x) * k; p.vy += (ty - p.y) * k;
     p.vx *= damp; p.vy *= damp; p.x += p.vx; p.y += p.vy;
     energy += Math.abs(p.vx) + Math.abs(p.vy) + Math.abs(p.hx - p.x) + Math.abs(p.hy - p.y);
