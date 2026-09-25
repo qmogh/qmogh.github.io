@@ -20,13 +20,12 @@
 </header>
 
 
-<div class="intro">Books I've read, rated out of 10, with the one thing I took away.</div>
 <div class="books" id="books"></div>
 </div>
 <script src="/portrait.js"></script>
 <script>
 fetch('/data/reading.json').then(r => r.json()).then(books => {
-  if (!books.length) return document.getElementById('books').innerHTML = '<div class="book"><span class="rating">–</span><p>Nothing here yet.</p></div>';
+  if (!books.length) return document.getElementById('books').innerHTML = '<p class="muted">Nothing here yet.</p>';
   document.getElementById('books').append(...books.sort((a, b) => b.rating - a.rating).map(b => {
     const el = document.createElement('div');
     el.className = 'book';
