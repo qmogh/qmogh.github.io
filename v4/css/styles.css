@@ -1,0 +1,71 @@
+
+.green {
+	color: #7ca34d
+  }
+  
+  .blue {
+	color: #007a87
+  }
+
+  a {
+	color: #eb3750
+  }
+
+  .blue2 {
+	color: #25426d
+  }
+  
+  body {
+	font-family: 'EB Garamond', serif;
+	font-size: 25px;
+  padding-left: 16px;
+  padding-right: 16px;
+  }
+  
+  @media only screen and (min-width: 32em) {
+	body {
+	margin-top: 40px;
+	padding-right: 100px;
+	padding-left: 100px;
+  
+  
+  }
+  
+  p {
+	font-size: 32px;
+	text-align: center;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.85);
+	font-style: normal;
+	line-height: 1.2;
+  }
+  
+  }
+  
+  
+  /*
+  .fa-twitter {
+	background: white;
+	color: #black;
+  }
+  
+  .fa-linkedin {
+	background: white;
+	color: #black;
+  }
+  
+  
+  
+  .center {
+	text-align: center;
+  }
+  
+  
+  
+  .fa-google {
+	background: white;
+	color: #black;
+  }
+  
+  
+  */
