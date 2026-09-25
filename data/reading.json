@@ -1,0 +1,7 @@
+[
+  { "title": "Governing the Commons", "author": "Elinor Ostrom", "rating": 10, "takeaway": "Communities can manage shared resources without a king or a market, if the rules are local.", "current": true },
+  { "title": "The Selfish Gene", "author": "Richard Dawkins", "rating": 9, "takeaway": "Treat the gene as the unit that is trying to persist." },
+  { "title": "Working in Public", "author": "Nadia Eghbal", "rating": 9, "takeaway": "Open source is maintained by a few people carrying many users." },
+  { "title": "Rules for Radicals", "author": "Saul Alinsky", "rating": 8, "takeaway": "Start from the world as it is, not as you wish it were." },
+  { "title": "The Dream Machine", "author": "M. Mitchell Waldrop", "rating": 7, "takeaway": "Personal computing began as one person's funding agenda." }
+]
