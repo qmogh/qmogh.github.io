@@ -19,7 +19,7 @@ img.onload = () => {
   t.width = w; t.height = h;
   const tx = t.getContext('2d'); tx.drawImage(img, 0, 0);
   const d = tx.getImageData(0, 0, w, h).data, s = IMG / w;
-  const intro = INTRO_ON_LOAD && !still;
+  const intro = INTRO_ON_LOAD && 'intro' in box.dataset && !still;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 128) {
     const hx = PAD + x * s, hy = PAD + y * s;
     if (intro) {
