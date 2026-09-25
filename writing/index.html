@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>writing — Amogh Chaubey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<div class="page">
+<header>
+<div>
+<div class="name">Amogh Chaubey</div>
+<nav><a href="/">me</a><a href="/writing/" aria-current="page">writing</a><a href="/reading/">reading</a></nav>
+</div>
+<div class="portrait"><img src="/assets/doodle-dither.png" alt="Amogh"></div>
+</header>
+
+
+<div class="intro">From my <a href="https://dotcombubble.substack.com">Substack</a>.</div>
+<div id="posts"></div>
+</div>
+<script src="/portrait.js"></script>
+<script>
+const text = s => new DOMParser().parseFromString(s, 'text/html').documentElement.textContent;
+fetch('/data/posts.json').then(r => r.json()).then(posts => {
+  document.getElementById('posts').append(...posts.map(p => {
+    const el = document.createElement('a');
+    el.className = 'post';
+    el.href = p.url;
+    el.innerHTML = '<span><span></span><small></small></span><time></time>';
+    el.querySelector('span span').textContent = text(p.title) + ' ↗';
+    el.querySelector('small').textContent = text(p.subtitle);
+    el.querySelector('time').textContent = new Date(p.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+    return el;
+  }));
+});
+</script>
+</body>
+</html>
