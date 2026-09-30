@@ -14,7 +14,7 @@ nav a{text-decoration:none;opacity:.4}
 nav a[aria-current]{opacity:1}
 .portrait{position:relative;width:150px;height:150px;cursor:pointer;touch-action:none}
 .portrait img{width:150px;height:150px;display:block}
-.portrait-canvas{position:fixed;inset:0;width:100vw;height:100vh;display:block;pointer-events:none;z-index:1}
+.portrait canvas{position:absolute;left:-100px;top:-100px;width:350px;height:350px;display:block;pointer-events:none}
 
 .bio{display:flex;flex-direction:column;gap:16px;text-wrap:pretty}
 .now{margin-top:36px;padding:14px 0;border-top:1px solid #e5dfd2;border-bottom:1px solid #e5dfd2;display:grid;grid-template-columns:64px minmax(0,1fr);gap:4px 12px;font-size:14px}

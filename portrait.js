@@ -8,16 +8,9 @@ const fallback = box.querySelector('img');
 const CSS = 350, PAD = 100, IMG = 150, dpr = window.devicePixelRatio || 1;
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cv = document.createElement('canvas');
-cv.className = 'portrait-canvas'; cv.setAttribute('aria-hidden', 'true');
-const ctx = cv.getContext('2d');
-let ox = 0, oy = 0;
-function fit() { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; }
-function frame() {
-  const r = box.getBoundingClientRect(); ox = r.left - PAD; oy = r.top - PAD;
-  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
-  ctx.setTransform(dpr, 0, 0, dpr, ox * dpr, oy * dpr); ctx.fillStyle = '#2a2622';
-}
-fit();
+cv.setAttribute('aria-label', 'Amogh, drawn in dots');
+cv.width = CSS * dpr; cv.height = CSS * dpr;
+const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
 
 let P = [], dot = 1, m = { x: -999, y: -999 }, scatterAt = null, raf = null;
 
@@ -44,13 +37,13 @@ img.onload = () => {
   for (let i = 0; i < FLOATERS && edge.length; i++) edge.splice(Math.random() * edge.length | 0, 1)[0].drift = true;
   dot = Math.max(s, 1 / dpr) * 1.05;
   if (intro) scatterAt = performance.now() - 250;
-  fallback.style.visibility = 'hidden'; document.body.appendChild(cv);
+  fallback.replaceWith(cv);
   still ? draw() : wake();
 };
 img.src = fallback.src;
 
 function draw() {
-  frame();
+  ctx.clearRect(0, 0, CSS, CSS); ctx.fillStyle = '#2a2622';
   for (const p of P) ctx.fillRect(p.x, p.y, dot, dot);
 }
 
@@ -58,7 +51,7 @@ function tick() {
   const now = performance.now() / 1000;
   const { x: mx, y: my } = m, R2 = RADIUS * RADIUS;
   let energy = 0;
-  frame();
+  ctx.clearRect(0, 0, CSS, CSS); ctx.fillStyle = '#2a2622';
   const T = scatterAt ? (performance.now() - scatterAt) / 1000 / RETURN_SECONDS : 2;
   if (T >= 2) scatterAt = null;
   for (const p of P) {
@@ -81,13 +74,10 @@ function tick() {
 
 function wake() { if (!raf && P.length) raf = requestAnimationFrame(tick); }
 
-addEventListener('resize', () => { fit(); still ? draw() : wake(); });
-addEventListener('scroll', () => still ? draw() : wake(), { passive: true });
-
 if (!still) {
   const move = e => {
-    const p = e.touches ? e.touches[0] : e;
-    m = { x: p.clientX - ox, y: p.clientY - oy }; wake();
+    const r = cv.getBoundingClientRect(), p = e.touches ? e.touches[0] : e;
+    m = { x: p.clientX - r.left, y: p.clientY - r.top }; wake();
   };
   const leave = () => { m = { x: -999, y: -999 }; wake(); };
   box.addEventListener('pointermove', move);
