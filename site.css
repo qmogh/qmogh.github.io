@@ -32,8 +32,11 @@ footer{margin-top:88px}
 .post small{font-size:14px;color:#8a8375}
 .post time{color:#8a8375;font-size:13px;font-variant-numeric:tabular-nums}
 
-.books{display:flex;flex-direction:column;gap:24px;margin-top:20px}
-.book{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px}
+.books{margin-top:20px}
+.book{border-bottom:1px solid #e5dfd2}
+.book summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;padding:12px 0}
+.book summary::-webkit-details-marker{display:none}
+.book summary:hover{opacity:.6}
 .book .rating{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#8a8375;padding-top:3px}
 .book b{font-weight:600}
-.book p{color:#5f5a4f;font-size:15px;text-wrap:pretty}
+.book p{color:#5f5a4f;font-size:15px;text-wrap:pretty;padding-bottom:16px}

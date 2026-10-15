@@ -40,10 +40,10 @@ fetch('/data/reading.json').then(r => r.json()).then(all => {
   const books = all.filter(b => b.rating != null);
   if (!books.length) return document.getElementById('books').innerHTML = '<p class="muted">Nothing here yet.</p>';
   document.getElementById('books').append(...books.sort((a, b) => b.rating - a.rating).map(b => {
-    const el = document.createElement('div');
+    const el = document.createElement('details');
     el.className = 'book';
-    el.innerHTML = '<span class="rating"></span><div><div><b></b> <span class="muted"></span></div><p></p></div>';
-    el.querySelector('.rating').textContent = b.rating;
+    el.innerHTML = '<summary><span><b></b> <span class="muted"></span></span><span class="rating"></span></summary><p></p>';
+    el.querySelector('.rating').textContent = b.rating + '/5';
     el.querySelector('b').textContent = b.title;
     el.querySelector('.muted').textContent = '— ' + b.author;
     el.querySelector('p').textContent = b.takeaway;
